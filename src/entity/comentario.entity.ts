@@ -26,5 +26,5 @@ export class Comentario {
     foro:Foro */
 
   @ManyToOne(() => Usuario, (usuario) => usuario.comentario)
-  usuario: Usuario[];
+  usuario: Usuario;
 }

@@ -8,10 +8,9 @@ import { UsuarioDto } from '../Dto/usuario.dto';
 @Injectable()
 export class UsuarioService {
 
-    @InjectRepository(Usuario)
-    private readonly userRepository: Repository<Usuario>
+   
 
-    constructor(){
+    constructor( @InjectRepository(Usuario) private readonly userRepository: Repository<Usuario>){
         
     }
    
@@ -39,10 +38,11 @@ export class UsuarioService {
 
 
     createUser(usuario: Partial<UsuarioDto>): Promise<UsuarioDto> {
+        this.userRepository.create(usuario);
         return this.userRepository.save(usuario);
     }
 
-    async updateUser(id: number, usuario: Partial<UsuarioDto>): Promise<any> {
+    async updateUser(id: number, usuario: Partial<UsuarioDto>): Promise<UsuarioDto> {
         const usuarioFind:Usuario = await this.userRepository.findOneBy({idusuario:id});
 
         if(!usuarioFind){

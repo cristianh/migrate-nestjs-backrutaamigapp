@@ -1,3 +1,4 @@
+import { Comentario } from './../entity/comentario.entity';
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { UsuarioController } from './Controllers/usuarioController';
@@ -6,7 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Usuario } from 'src/entity/usuario.entity';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Usuario])],
+    imports: [TypeOrmModule.forFeature([Usuario,Comentario])],
     controllers: [UsuarioController],
     providers: [
         UsuarioService,

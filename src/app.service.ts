@@ -9,6 +9,6 @@ export class AppService {
   ) {}
 
   getHello(): string {
-    return this.ConfigData.database.database_name;
+    return this.ConfigData.database.database;
   }
 }

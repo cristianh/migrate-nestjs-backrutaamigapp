@@ -1,10 +1,5 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  OneToOne,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Usuario } from './usuario.entity';
 /*idRutas INT PRIMARY KEY auto_increment,
 numero INT not null,
 descripcion VARCHAR(45),
@@ -23,4 +18,7 @@ export class Ruta {
 
   @Column({ type: 'varchar', nullable: false })
   sentido: string;
+
+  @ManyToOne(() => Usuario, (usuario) => usuario.ruta)
+  usuario: Usuario;
 }

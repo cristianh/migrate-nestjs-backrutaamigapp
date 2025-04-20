@@ -9,6 +9,7 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 import { Comentario } from '../entity/comentario.entity';
+import { Ruta } from './ruta.entity';
 
 
 @Entity()
@@ -36,6 +37,9 @@ export class Usuario {
 
     @OneToMany(() => Comentario, (comentario) => comentario.usuario)
     comentario:Comentario
+
+    @OneToMany(() => Ruta, (ruta) => ruta.usuario)
+    ruta:Ruta
 
     @CreateDateColumn()
     fecha_creacion : string
